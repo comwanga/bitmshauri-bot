@@ -19,10 +19,12 @@ logger = logging.getLogger(__name__)
 # Configuration
 PORT = int(os.getenv("PORT", "8000"))
 HOST = os.getenv("HOST", "0.0.0.0")
-TELEGRAM_BOT_TOKEN = os.getenv(
-    "TELEGRAM_BOT_TOKEN", 
-    "8057866774:AAEMaLJKIyVVqyKn6hEt7tqVt3EzHXzUWno"
-)
+
+# Get Telegram bot token from environment - REQUIRED
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+if not TELEGRAM_BOT_TOKEN:
+    logger.error("TELEGRAM_BOT_TOKEN environment variable is required")
+    raise ValueError("TELEGRAM_BOT_TOKEN environment variable must be set")
 
 # Set environment variable for the bot
 os.environ["TELEGRAM_BOT_TOKEN"] = TELEGRAM_BOT_TOKEN

@@ -213,8 +213,8 @@ def rate_limit(action_type: str = "message"):
                             "⏰ Subiri kidogo! Umetuma maombi mengi sana.",
                             show_alert=True,
                         )
-                except:
-                    pass
+                except Exception as e:
+                    logger.logger.warning(f"Failed to send rate limit message: {e}")
                 return None
 
             return await func(*args, **kwargs)

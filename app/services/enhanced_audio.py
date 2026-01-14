@@ -265,8 +265,8 @@ class EnhancedAudioService:
             # Clean up original file
             try:
                 os.remove(audio_file)
-            except:
-                pass
+            except OSError as e:
+                logger.log_error(e, {"operation": "remove_audio_file", "file": audio_file})
 
             return enhanced_file
 
@@ -416,8 +416,8 @@ class EnhancedAudioService:
                     ):  # Convert hours to seconds
                         try:
                             os.remove(file_path)
-                        except:
-                            pass
+                        except OSError as e:
+                            logger.log_error(e, {"operation": "cleanup_audio", "file": file_path})
 
         except Exception as e:
             logger.log_error(e, {"operation": "cleanup_old_audio"})

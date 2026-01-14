@@ -558,6 +558,8 @@ class CleanBitMshauriBot:
             tips = multi_lang_bot.get_daily_tips(user_id)
 
             if tips:
+                # Using random.choice for non-security purpose (tip selection)
+                # This is acceptable as tip selection doesn't require cryptographic randomness
                 import random
                 tip = random.choice(tips)
                 await update.message.reply_text(tip)

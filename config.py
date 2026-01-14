@@ -56,9 +56,10 @@ class Config:
     # Security
     SECRET_KEY: Optional[str] = SEC_KEY or os.getenv("SECRET_KEY")
     if not SECRET_KEY:
-        # Fallback for deployment environments
-        SECRET_KEY = "bitmshauri_secure_key_2024_production"
-        print("⚠️ Using fallback SECRET_KEY for deployment")
+        # Generate a secure random key if not provided
+        import secrets
+        SECRET_KEY = secrets.token_urlsafe(32)
+        print("⚠️ Generated random SECRET_KEY - set SECRET_KEY env var for persistence")
 
     # Optional Settings
     LOG_LEVEL: str = LOG_LVL or os.getenv("LOG_LEVEL", "INFO")
