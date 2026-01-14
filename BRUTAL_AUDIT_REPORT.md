@@ -107,17 +107,17 @@ gtts==2.4.0                ✅ Latest
 aiofiles==23.2.1           ✅ Secure
 Flask==3.1.1               ✅ Latest stable
 APScheduler==3.10.4        ✅ Secure
-aiohttp==3.9.1             ⚠️  Should update to 3.9.2+ (CVE fixes)
+aiohttp==3.13.3            ✅ Patched (zip bomb vulnerability fixed)
 pydub==0.25.1              ✅ Secure
-aiosqlite==0.19.0          ✅ Secure
+aiosqlite==0.20.0          ✅ Secure
 psutil==5.9.6              ✅ Secure
-unittest2==1.1.0           ⚠️  Deprecated, use built-in unittest
+unittest2==1.1.0           ⚠️  Deprecated, REMOVED
 ```
 
-### Recommended Actions:
-- Update `aiohttp` to 3.9.2+ for security fixes
-- Remove `unittest2` (deprecated, use built-in unittest)
-- Consider adding `cryptography` for secure key generation
+### Dependency Updates Applied:
+- ✅ Updated `aiohttp` from 3.9.1 → 3.13.3 (fixes zip bomb vulnerability in auto_decompress)
+- ✅ Removed `unittest2` (deprecated, use built-in unittest)
+- ✅ Updated `aiosqlite` from 0.19.0 → 0.20.0
 
 ---
 
