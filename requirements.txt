@@ -3,7 +3,7 @@ python-dotenv==1.0.0
 requests==2.31.0
 gtts==2.4.0
 aiofiles==23.2.1
-Flask==3.1.1
+Flask==2.3.3
 APScheduler==3.10.4
 
 # Enhanced Dependencies for Professional Features
