@@ -40,13 +40,17 @@ jobs:
         bandit -r app/ -f txt
       continue-on-error: true
     
+    - name: Get first commit SHA
+      id: first_commit
+      run: echo "sha=$(git rev-list --max-parents=0 HEAD)" >> $GITHUB_OUTPUT
+
     - name: Check for Secrets
       uses: trufflesecurity/trufflehog@main
       with:
         path: ./
-        base: ${{ github.event.repository.default_branch }}
+        base: ${{ steps.first_commit.outputs.sha }}
         head: HEAD
-    
+
     - name: Upload Bandit Report
       uses: actions/upload-artifact@v4
       if: always()
