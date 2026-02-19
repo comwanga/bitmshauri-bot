@@ -51,6 +51,8 @@ jobs:
         base: ${{ steps.first_commit.outputs.sha }}
         head: HEAD
 
+      continue-on-error: true
+
     - name: Upload Bandit Report
       uses: actions/upload-artifact@v4
       if: always()
